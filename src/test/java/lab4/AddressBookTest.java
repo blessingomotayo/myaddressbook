@@ -1,3 +1,5 @@
+package lab4;
+
 import lab4.AddressBook;
 import lab4.BuddyInfo;
 import org.junit.*;
