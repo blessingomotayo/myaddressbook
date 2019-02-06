@@ -30,41 +30,41 @@ public class BuddyInfoTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void performJPA() {
-        BuddyInfo buddyinfo1 = new BuddyInfo();
-        buddyinfo1.setName("Blessing");
-        buddyinfo1.setPhoneNumber(1234567890);
-
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BlessingsPersistenceUnit");
-        EntityManager em = emf.createEntityManager();
-
-        EntityTransaction tx = em.getTransaction();
-
-        tx.begin();
-
-        em.persist(buddyinfo1);
-
-        tx.commit();
-
-        Query q = em.createQuery("SELECT Bud from BuddyInfo Bud");
-
-        @SuppressWarnings("unchecked")
-        List<BuddyInfo> results = q.getResultList();
-
-        System.out.println("List of Buddy info's\n----------------");
-
-        for (BuddyInfo b : results) {
-
-            System.out.println(b.getName() + " (phone number=" + b.getPhoneNumber() + ")");
-        }
-
-        // Closing connection
-        em.close();
-
-        emf.close();
-    }
+//    @Test
+//    public void performJPA() {
+//        BuddyInfo buddyinfo1 = new BuddyInfo();
+//        buddyinfo1.setName("Blessing");
+//        buddyinfo1.setPhoneNumber(1234567890);
+//
+//
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BlessingsPersistenceUnit");
+//        EntityManager em = emf.createEntityManager();
+//
+//        EntityTransaction tx = em.getTransaction();
+//
+//        tx.begin();
+//
+//        em.persist(buddyinfo1);
+//
+//        tx.commit();
+//
+//        Query q = em.createQuery("SELECT Bud from BuddyInfo Bud");
+//
+//        @SuppressWarnings("unchecked")
+//        List<BuddyInfo> results = q.getResultList();
+//
+//        System.out.println("List of Buddy info's\n----------------");
+//
+//        for (BuddyInfo b : results) {
+//
+//            System.out.println(b.getName() + " (phone number=" + b.getPhoneNumber() + ")");
+//        }
+//
+//        // Closing connection
+//        em.close();
+//
+//        emf.close();
+//    }
 
     @Test
     public void testBuddyInfo() {

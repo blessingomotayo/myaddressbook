@@ -35,51 +35,51 @@ public class AddressBookTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void performJPA() {
-        BuddyInfo buddyinfo1 = new BuddyInfo();
-        buddyinfo1.setName("Blessing");
-        buddyinfo1.setPhoneNumber(1234567890);
-
-        BuddyInfo buddyinfo2 = new BuddyInfo();
-        buddyinfo2.setName("Blossom");
-        buddyinfo2.setPhoneNumber(123456);
-
-        addBook.addBuddys(buddyinfo1);
-        addBook.addBuddys(buddyinfo2);
-
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BlessingsPersistenceUnit");
-        EntityManager em = emf.createEntityManager();
-
-        EntityTransaction tx = em.getTransaction();
-
-        tx.begin();
-
-//        em.persist(buddyinfo1);
-//        em.persist(buddyinfo2);
-        em.persist(addBook);
-
-
-        tx.commit();
-
-        Query q = em.createQuery("SELECT AddB from AddressBook AddB");
-
-        @SuppressWarnings("unchecked")
-        List<AddressBook> results = q.getResultList();
-
-        System.out.println("List of Buddy info's in your Address Book are\n----------------");
-
-        for (AddressBook b : results) {
-
-            System.out.println(b.toString());
-        }
-
-        // Closing connection
-        em.close();
-
-        emf.close();
-    }
+//    @Test
+//    public void performJPA() {
+//        BuddyInfo buddyinfo1 = new BuddyInfo();
+//        buddyinfo1.setName("Blessing");
+//        buddyinfo1.setPhoneNumber(1234567890);
+//
+//        BuddyInfo buddyinfo2 = new BuddyInfo();
+//        buddyinfo2.setName("Blossom");
+//        buddyinfo2.setPhoneNumber(123456);
+//
+//        addBook.addBuddys(buddyinfo1);
+//        addBook.addBuddys(buddyinfo2);
+//
+//
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("BlessingsPersistenceUnit");
+//        EntityManager em = emf.createEntityManager();
+//
+//        EntityTransaction tx = em.getTransaction();
+//
+//        tx.begin();
+//
+////        em.persist(buddyinfo1);
+////        em.persist(buddyinfo2);
+//        em.persist(addBook);
+//
+//
+//        tx.commit();
+//
+//        Query q = em.createQuery("SELECT AddB from AddressBook AddB");
+//
+//        @SuppressWarnings("unchecked")
+//        List<AddressBook> results = q.getResultList();
+//
+//        System.out.println("List of Buddy info's in your Address Book are\n----------------");
+//
+//        for (AddressBook b : results) {
+//
+//            System.out.println(b.toString());
+//        }
+//
+//        // Closing connection
+//        em.close();
+//
+//        emf.close();
+//    }
 
     @Test
     public void testAddressBookAdd() {
