@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>NAME </th>
+        <th>Phone Number</th>
+    </tr>
+    <p th:text = "${addressbook.getBuddys()}"></p>
+    <tr th:each="buddy : ${addressbook.getBuddys()}">
+        <td th:text="${buddy.getName()}"></td>
+        <td th:text="${buddy.getPhoneNumber()}"></td>
+    </tr>
+</table>
+
+<h1>Welcome to your Address Book!</h1>
+
+<form action="#" th:action="@{/addressbook}" th:object="${newBuddy}" method="post">
+    Name: <input type="text" th:field="*{name}"> <br>
+    Phone Number: <input type="text" th:field="*{phoneNumber}"> <br>
+    <p><input type="submit" value="Add Buddy" /> <input type="reset" value="Reset Values" /></p>
+</form>
+</body>
+</html>
